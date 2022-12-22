@@ -1,0 +1,41 @@
+﻿@using CodeBase.Core.DTOs
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<OrderDTO>
+<div class="col mt-3">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>ProductID</td>
+                <td>CustomerID</td>
+                <td>Quantity</td>
+            
+            </tr>
+        </thead>
+        <tbody>
+          @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.ProductId</td>
+                    <td>@item.CustomerId</td>
+                    <td>@item.Quantity</td>     
+                </tr>
+            }
+        </tbody>
+            <tfood>
+            <tr>
+             <td>ID</td>
+                <td>ProductID</td>
+                <td>CustomerID</td>
+                <td>Quantity</td>
+                <td><a class="btn btn-primary" asp-controller="Order" asp-action="Save">Add Order</a></td>
+            </tr>
+        </tfood>
+    </table>
+</div>

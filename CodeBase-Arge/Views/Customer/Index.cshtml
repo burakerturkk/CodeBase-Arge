@@ -1,0 +1,43 @@
+﻿@using CodeBase.Core.DTOs
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<CustomerDTO>
+<div class="col mt-3">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>Mail</td>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Mail</td>
+                </tr>
+            }
+        </tbody>
+        <tfood>
+            <tr>
+                <td>ID</td>
+                <td>FirstName</td>
+                <td>LastName</td>
+                   <td>Mail</td>
+            </tr>
+        </tfood>
+    </table>
+</div>
+
+
