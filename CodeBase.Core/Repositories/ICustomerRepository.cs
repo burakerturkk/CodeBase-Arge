@@ -9,6 +9,7 @@ namespace CodeBase.Core.Repositories
 {
     public interface ICustomerRepository : IGenericRepository<Customer>
     {
+        Task<List<Customer>> GetProductWithCustomer();
 
     }
 }

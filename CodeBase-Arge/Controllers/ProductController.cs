@@ -38,15 +38,15 @@ namespace CodeBase_Arge.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(ProductDTO productDto)
         {
+            
             Product p = new Product();
+          
             if (ModelState.IsValid)
             {
                 p.Id = productDto.Id;
                 p.Name = productDto.Name;
                 p.Stock = productDto.Stock;
                 p.Price = productDto.Price;
-        
-                //p.CustomerId = productDto.CustomerId;
                 await _productService.AddAsync(p);
                 return RedirectToAction(nameof(Index));
             }

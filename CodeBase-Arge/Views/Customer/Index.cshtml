@@ -1,11 +1,9 @@
-﻿@using CodeBase.Core.DTOs
-
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@model List<CustomerDTO>
+@using CodeBase.Core.DTOs
+@model List<ProductWithCustomerDTO>
 <div class="col mt-3">
     <table class="table table-bordered table-striped">
         <thead>
@@ -14,6 +12,9 @@
                 <td>FirstName</td>
                 <td>LastName</td>
                 <td>Mail</td>
+                <td>Product Name</td>
+                <td>Product Quantity</td>
+                <td>Aksiyonlar</td>
 
             </tr>
         </thead>
@@ -26,6 +27,12 @@
                     <td>@item.FirstName</td>
                     <td>@item.LastName</td>
                     <td>@item.Mail</td>
+                    <td>@item.Products.Name</td>
+                    <td>@item.ProductQuantity</td>
+                    <td>
+                        <a class="btn btn-warning" asp-controller="Customer" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                        <a class="btn btn-danger" asp-controller="Customer" asp-action="Remove" asp-route-id="@item.Id">Remove</a>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -34,7 +41,11 @@
                 <td>ID</td>
                 <td>FirstName</td>
                 <td>LastName</td>
-                   <td>Mail</td>
+                <td>Mail</td>
+                <td>Product Name</td>
+                <td>Product Quantity</td>
+                <td>Aksiyonlar</td>
+                <td><a class="btn btn-primary" asp-controller="Customer" asp-action="Save">Add Order</a></td>
             </tr>
         </tfood>
     </table>

@@ -1,0 +1,39 @@
+﻿@using CodeBase.Core.DTOs
+
+@{
+    ViewData["Title"] = "Save";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model CustomerDTO
+
+<div class="col-md-6">
+    <form asp-action="Save" method="post" asp-controller="Customer">
+
+        <label>First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+
+        <label>Last Name</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+
+        <label>Mail</label>
+        <input asp-for="Mail" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+
+        <label>Product Name</label>
+        <select asp-for="ProductId" asp-items="@ViewBag.ct" class="form-control"></select>
+        <span asp-validation-for="ProductId" class="text-danger"></span>
+
+        <label>Product Quantity</label>
+        <input asp-for="ProductQuantity" class="form-control" />
+        @if (!string.IsNullOrEmpty(ViewBag.StockCount))
+        {
+            <span class="text-danger">@ViewBag.StockCount</span>
+        }
+        <br />
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+    </form>
+</div>
+

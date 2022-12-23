@@ -15,8 +15,7 @@
                 <td>Price</td>
                 <td>Stock</td>
                 <td>Aksiyonlar</td>
-              @*  <td>Customer Id</td>*@
-          @*      <td><a class="btn btn-primary" asp-controller="Product" asp-action="Save">Add Product</a></td>*@
+           
             </tr>
         </thead>
 
@@ -27,14 +26,10 @@
                     <td>@item.Id</td>
                     <td>@item.Name</td>
                     <td>@item.Price</td>
-                 
                     <td>@item.Stock</td>
-                    @*<td>@item.CustomerId</td>*@
                     <td> <a class="btn btn-warning" asp-controller="Product" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                        <a class="btn btn-danger" asp-controller="Product" asp-action="Remove" asp-route-id="@item.Id">Remove</a>
-                         <a class="btn btn-info" asp-controller="Order" asp-action="Save" asp-route-id="@item.Id">Order</a>     
+                        <a class="btn btn-danger" asp-controller="Product" asp-action="Remove" asp-route-id="@item.Id">Remove</a>  
                     </td>
-                        
                 </tr>
             }
         </tbody>
@@ -44,7 +39,6 @@
                 <td>Name</td>
                 <td>Price</td>
                 <td>Stock</td>
-               @* <td>Customer Id</td>*@
                 <td><a class="btn btn-primary" asp-controller="Product" asp-action="Save">Add Product</a></td>
             </tr>
         </tfood>

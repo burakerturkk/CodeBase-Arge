@@ -15,8 +15,8 @@ namespace CodeBase.Service.Mapping
         {
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<Customer, CustomerDTO>().ReverseMap();
-            CreateMap<Order, OrderDTO>().ReverseMap();
-            CreateMap<Order, OrderWithCustomerDTO>().ReverseMap();
+            CreateMap<Customer,ProductWithCustomerDTO>().ReverseMap();  
+
 
         }
     }

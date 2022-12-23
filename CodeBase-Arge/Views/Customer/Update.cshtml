@@ -1,0 +1,36 @@
+﻿@using CodeBase.Core.DTOs
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model CustomerDTO
+
+<div class="col-md-5">
+
+    <form asp-action="Update" method="post" asp-controller="Customer">
+        <label>First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+
+         <label>Last Name</label>
+        <input asp-for="LastName" class="form-control"  />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+
+         <label>Mail</label>
+        <input asp-for="Mail" class="form-control"  />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+
+          <label>Product Name</label>
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+
+                  <label>Product Quantity</label>
+                <input asp-for="ProductQuantity" class="form-control" />
+                <span asp-validation-for="ProductQuantity" class="text-danger"></span>
+
+        <br />
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+    </form>
+</div>
+

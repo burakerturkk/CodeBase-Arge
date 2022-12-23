@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CodeBase.Core.DTOs
 {
-    public class OrderWithCustomerDTO : OrderDTO
+    public class ProductWithCustomerDTO : CustomerDTO
     {
-        public CustomerDTO Customer { get; set; }
-
+        public ProductDTO Products { get; set; }
     }
 }

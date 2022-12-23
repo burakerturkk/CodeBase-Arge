@@ -12,7 +12,10 @@ namespace CodeBase.Core.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Mail { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public int ProductQuantity { get; set; }
+        public Product Products { get; set; }
+        public int ProductId { get; set; }
+        //public DateTime ddd { get; set; }
 
 
     }

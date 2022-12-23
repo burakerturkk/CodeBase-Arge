@@ -11,8 +11,9 @@ namespace CodeBase.Core.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int Stock { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Customer> Customers { get; set; }
 
+       // public DateTime ddd { get; set; }
 
     }
 }

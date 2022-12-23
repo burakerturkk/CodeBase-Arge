@@ -13,7 +13,8 @@ namespace CodeBase.Core.DTOs
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Mail { get; set; }
-        public int OrderId { get; set; }
-       
+        public int ProductId { get; set; }
+        public int ProductQuantity { get; set; }
+
     }
 }

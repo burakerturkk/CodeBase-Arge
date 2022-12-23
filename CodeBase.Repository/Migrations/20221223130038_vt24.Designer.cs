@@ -3,6 +3,7 @@ using CodeBase.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeBase.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221223130038_vt24")]
+    partial class vt24
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,15 +43,10 @@ namespace CodeBase.Repository.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProductQuantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
 
                     b.ToTable("Customers");
                 });
@@ -61,6 +58,9 @@ namespace CodeBase.Repository.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -74,23 +74,25 @@ namespace CodeBase.Repository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CustomerId");
+
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("CodeBase.Core.Models.Customer", b =>
-                {
-                    b.HasOne("CodeBase.Core.Models.Product", "Products")
-                        .WithMany("Customers")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("CodeBase.Core.Models.Product", b =>
                 {
-                    b.Navigation("Customers");
+                    b.HasOne("CodeBase.Core.Models.Customer", "Customer")
+                        .WithMany("Products")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("CodeBase.Core.Models.Customer", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }
